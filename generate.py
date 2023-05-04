@@ -28,7 +28,7 @@ if header == None:
 if _def == None:
     _def = "PROXY.def"
 
-if args.target.split('.').__len__() > 2:
+if args.name[0].split('.').__len__() > 2:
     print("More than one \'.\' character in the DLLs name (I don\'t make the rules)")
     sys.exit(1)
 
