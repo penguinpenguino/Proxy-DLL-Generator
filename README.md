@@ -23,7 +23,7 @@ __attribute__((constructor)) void OnLoad() {
 }
 ```
 
-4. Compiling everything (using a 32-bit version of g++): `g++ -shared -fPIC PROXY.cpp PROXY.def -o ffmpeg.dll -L. -lffmpeg_proxy`
+4. Compiling everything (using a 32-bit version of g++): `g++ -shared -fPIC PROXY.cpp PROXY.def -o ffmpeg.dll -L. -lffmpeg_proxy -mwindows`
 5. Done, `ffmpeg_proxy.dll` is the unedited version of ffmpeg and `ffmpeg.dll` is our magic DLL
 
 glhf
