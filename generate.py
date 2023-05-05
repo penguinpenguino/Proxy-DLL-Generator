@@ -91,7 +91,10 @@ for i in range(exports.__len__()):
     b = ""
     for j in range(args.arg_count[0]):
         b += "void*, " if j <= args.arg_count[0] - 2 else "void*"
-    header_file.write(f"    return ((void* (*)({b}))GetProcAddress(::DLL, \"{exports[i]}\"))({WhenCallingArgs});")
+    if args.dynamic:
+        header_file.write(f"    return ((void* (*)({b}))GetProcAddress(::DLL, \"{exports[i]}\"))({WhenCallingArgs});")
+    else:
+        header_file.write(f"    return {args.prefix[0]}{exports[i]}({WhenCallingArgs});")
     header_file.write("\n}\n\n")
 
 header_file.close()
